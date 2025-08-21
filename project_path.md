@@ -172,7 +172,7 @@ Hello, world! - rust-tiny
 ```
 <!-- keep the format -->
 >[!NOTE]
-> 17% smaller execute file size
+>17% smaller execute file size
 <!-- keep the format -->
 ## Add inside Cargo.toml - [profile.release] opt-level = "s"
 <!-- keep the format -->
@@ -204,7 +204,86 @@ Hello, world! - rust-tiny
 ```
 <!-- keep the format -->
 >[!NOTE]
-> NOT CHANGE YET
+> NOT CHANGE size YET - is that correct ??
+<!-- keep the format -->
+## Clean the project - Create a clean workspace
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+cargo clean
+```
+<!-- keep the format -->
+## Next step - add inside Cargo.toml - [profile.release] lto = true
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+[profile.release]
+strip = true # Automatically strip symbols from the binary
+# german - Automatisches Entfernen von Symbolen aus der Binärdatei
+opt-level = "s" # Optimize for size
+lto = true # Enable link time optimization
+```
+<!-- keep the format -->
+## Build the project - release - [profile.release] lto = true
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+cargo build --release
+```
+<!-- keep the format -->
+## Run the project - release - [profile.release] lto = true  
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+>cargo run --release
+    Finished `release` profile [optimized] target(s) in 0.06s
+     Running `target/release/rust_tiny`
+Hello, world! - rust-tiny
+# or direct path change to project_folder
+./target/release/rust_tiny
+# size of binary
+> du -sh ./target/release/rust_tiny
+ 312K    ./target/release/rust_tiny
+```
+<!-- keep the format -->
+>[!NOTE]
+>14% smaller execute file size
+<!-- keep the format -->
+## Clean the project - Create a clean workspace - again
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+cargo clean
+```
+<!-- keep the format -->
+## Next step - add inside Cargo.toml - [profile.release] codegen-units = 1  
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+[profile.release]
+strip = true # Automatically strip symbols from the binary
+# german - Automatisches Entfernen von Symbolen aus der Binärdatei
+opt-level = "s" # Optimize for size
+lto = true # Enable link time optimization
+codegen-units = 1 # Maximize size reduction optimizations
+```
+<!-- keep the format -->
+## Build the project - release - [profile.release] codegen-units = 1
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+cargo build --release
+```
+<!-- keep the format -->
+## Run the project - release - [profile.release] codegen-units = 1  
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+>cargo run --release
+    Finished `release` profile [optimized] target(s) in 0.06s
+     Running `target/release/rust_tiny`
+Hello, world! - rust-tiny
+# or direct path change to project_folder
+./target/release/rust_tiny
+# size of binary
+> du -sh ./target/release/rust_tiny
+ 312K    ./target/release/rust_tiny
+```
+<!-- keep the format -->
+>[!NOTE]
+>> NOT CHANGE size YET - is that correct ??
 
 ##
 <!-- keep the format -->

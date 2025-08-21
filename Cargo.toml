@@ -7,4 +7,5 @@ edition = "2024"
 rustfmt = "0.10.0"
 
 [profile.release]
-strip = true
+strip = true # Automatically strip symbols from the binary
+opt-level = "s" # Optimize for size

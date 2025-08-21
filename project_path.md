@@ -91,6 +91,9 @@ rustc --version --verbose
 >[!TIP] Markdownlint - Rules inside files can be enabled, disabled
 > <!-- markdownlint-disable-next-line --> [![alt text][1]](https://github.com/DavidAnson/markdownlint)
 <!-- keep the format -->
+>[!NOTE]
+>The Cargo Book -  [![alt text][1]](https://doc.rust-lang.org/cargo/reference/profiles.html)
+<!-- KEP THE FORMAT -->
 ## Clean the project - remove every things inside the target folder
 <!-- keep the format -->
 ```bash <!-- markdownlint-disable-line code-block-style -->
@@ -140,11 +143,12 @@ Hello, world! - rust-tiny
 >[!NOTE]
 > 89% smaller file size
 <!-- keep the format -->
-## Add inside Cargo.toml strip = true option
+## Add inside Cargo.toml - [profile.release] strip = true
 <!-- keep the format -->
 ```bash <!-- markdownlint-disable-line code-block-style -->
 [profile.release]
-strip = true 
+strip = true # Automatically strip symbols from the binary
+# german - Automatisches Entfernen von Symbolen aus der Binärdatei
 ```
 <!-- keep the format -->
 ## Build the project - release - [profile.release] strip = true
@@ -153,7 +157,7 @@ strip = true
 cargo build --release
 ```
 <!-- keep the format -->
-## Run the project - release- [profile.release] strip = true  
+## Run the project - release - [profile.release] strip = true  
 <!-- keep the format -->
 ```bash <!-- markdownlint-disable-line code-block-style -->
 >cargo run --release
@@ -169,6 +173,38 @@ Hello, world! - rust-tiny
 <!-- keep the format -->
 >[!NOTE]
 > 17% smaller execute file size
+<!-- keep the format -->
+## Add inside Cargo.toml - [profile.release] opt-level = "s"
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+[profile.release]
+strip = true # Automatically strip symbols from the binary
+# german - Automatisches Entfernen von Symbolen aus der Binärdatei
+opt-level = "s" # Optimize for size
+```
+<!-- keep the format -->
+## Build the project - release - - [profile.release] opt-level = "s"
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+cargo build --release
+```
+<!-- keep the format -->
+## Run the project - release - [profile.release] opt-level = "s"  
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+>cargo run --release
+    Finished `release` profile [optimized] target(s) in 0.06s
+     Running `target/release/rust_tiny`
+Hello, world! - rust-tiny
+# or direct path change to project_folder
+./target/release/rust_tiny
+# size of binary
+> du -sh ./target/release/rust_tiny
+ 360K    ./target/release/rust_tiny
+```
+<!-- keep the format -->
+>[!NOTE]
+> NOT CHANGE YET
 
 ##
 <!-- keep the format -->

@@ -85,7 +85,7 @@ rustup override set stable
 rustc --version --verbose
 ```
 <!-- keep the format -->
->[!TIP]
+>[!NOTE]
 > Make sure the stable toolchain is activated
 <!-- keep the format -->
 >[!TIP] Markdownlint - Rules inside files can be enabled, disabled
@@ -97,11 +97,126 @@ rustc --version --verbose
 cargo clean
 ```
 <!-- keep the format -->
-## Build the project
+## Build the project - debug
 <!-- keep the format -->
 ```bash <!-- markdownlint-disable-line code-block-style -->
 cargo build
 ```
+<!-- keep the format -->
+## Run the project - debug
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+>cargo run
+ Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.05s
+     Running `target/debug/rust_tiny`
+Hello, world! - rust-tiny
+# or direct path
+./target/debug/rust_tiny
+# size of binary
+> du -sh ./target/debug/rust_tiny
+ 3.7M    ./target/debug/rust_tiny
+```
+<!-- keep the format -->
+## Build the project - release
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+cargo build --release
+```
+<!-- keep the format -->
+## Run the project - release
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+>cargo run --release
+    Finished `release` profile [optimized] target(s) in 0.06s
+     Running `target/release/rust_tiny`
+Hello, world! - rust-tiny
+# or direct path change to project_folder
+./target/release/rust_tiny
+# size of binary
+> du -sh ./target/release/rust_tiny
+ 432K    ./target/release/rust_tiny
+```
+<!-- keep the format -->
+>[!NOTE]
+> 89% smaller file size
+<!-- keep the format -->
+## Add inside Cargo.toml strip = true option
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+[profile.release]
+strip = true 
+```
+<!-- keep the format -->
+## Build the project - release - [profile.release] strip = true
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+cargo build --release
+```
+<!-- keep the format -->
+## Run the project - release- [profile.release] strip = true  
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+>cargo run --release
+    Finished `release` profile [optimized] target(s) in 0.06s
+     Running `target/release/rust_tiny`
+Hello, world! - rust-tiny
+# or direct path change to project_folder
+./target/release/rust_tiny
+# size of binary
+> du -sh ./target/release/rust_tiny
+ 360K    ./target/release/rust_tiny
+```
+<!-- keep the format -->
+>[!NOTE]
+> 17% smaller execute file size
+
+##
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+cargo build
+```
+<!-- keep the format -->
+## Run the project
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+cargo run
+# naive path of execute
+# <project_folder>/target/debug/try-out-eframe-real-time-plotting
+# cd <project_folder>
+target/debug/try-out-eframe-real-time-plotting
+```
+<!-- keep the format -->
+## File size of executable
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+ls -lah target/debug/try-out-eframe-real-time-plotting
+```
+<!-- keep the format -->
+## Build the project - release
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+cargo build --release
+```
+<!-- keep the format -->
+## Run the project - release
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+cargo run - release
+# or direct path
+target/release/try-out-eframe-real-time-plotting
+```
+<!-- keep the format -->
+## File size of executable -release
+<!-- keep the format -->
+```bash <!-- markdownlint-disable-line code-block-style -->
+ls -lah target/release/try-out-eframe-real-time-plotting
+```
+<!-- keep the format -->
+>[!NOTE]
+>File size differences between the executable debug and release version 10/1
+> debug -  3825448 kb
+> release - 442176 kb
+<!-- keep the format -->
 <!-- keep the format -->
 <!-- make folder and download the link sign vai curl -->
 <!-- mkdir -p img && curl --create-dirs --output-dir img -O  "https://raw.githubusercontent.com/MathiasStadler/link_symbol_svg/refs/heads/main/link_symbol.svg"-->

@@ -5,3 +5,6 @@ edition = "2024"
 
 [dependencies]
 rustfmt = "0.10.0"
+
+[profile.release]
+strip = true

@@ -2,7 +2,25 @@
 <!-- keep the format -->
 >[!NOTE]
 >Approvement of [![alt text][1]](https://github.com/MathiasStadler/try_out_egui_plot/blob/master/project_path.md?plain=1)
-
+<!-- keep the format -->
+>[!NOTE]
+>Use codium of debian
+><!-- To comply with the format -->
+>```bash <!-- markdownlint-disable-line code-block-style -->
+>codium --user-data-dir /home/trapapa/codium_one/ --extensions-dir /home/trapapa/codium_one/extensions_one --log debug --profile my_one
+>```
+>
+<!-- kep the format -->
+TODO: complete extension
+>[!NOTE]
+>Use follow extensions
+>-list-extensions List the installed extensions
+><!-- To comply with the format -->
+>```bash <!-- markdownlint-disable-line code-block-style -->
+>codium -list-extensions # List the installed extensions
+>
+>```
+>
 <!-- keep the format -->
 ## Create for your own project a new project folder in the console(terminal, bash shell)
 <!-- keep the format -->
